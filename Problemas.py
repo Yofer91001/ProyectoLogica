@@ -1,5 +1,5 @@
-from clases import *
-from declarations import *
+
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
@@ -25,12 +25,12 @@ def escribir_rejilla(self, literal):
     n, x, y  = self.inv(atomo)
     return f"El número {n}{neg} está en la casilla ({x},{y})"
 
-class Damas:
+class Caballos:
 
     '''
     Clase para representar el problema de poner
-    ocho damas en un tablero de ajedrez sin que se
-    puedan atacar la una a la otra.
+    tres caballos en un tablero de ajedrez sin que se
+    puedan atacar el uno al otro.
     '''
 
     def __init__(self):
@@ -43,49 +43,49 @@ class Damas:
 
 
     def regla1(self):
-        
+        casillas = [(x,y) for x in range(8) for y in range(8)]
         lista = []
         for c in casillas:
             lista_y = list()
             for z in range(8):
-                if(z != c[0]):
-                    lista_y.append('-' + self.DenC.P([z,c[1]] ) ) 
+                if(z != c.x):
+                    lista_y.append('-' + DenC.P([z,y])) 
                 
-            formula = '(' + self.DenC.P([c[0],c[1]]) + ">" + Ytoria(lista_y) + ')'
+            formula = '(' + self.DenC.P([x,y]) + ">" + Ytoria(lista_y) + ')'
             lista.append(formula)
             
-        return Ytoria(lista)
+        return Yoria(lista)
 
     def regla2(self):
         
-        
+        casillas = [(x,y) for x in range(8) for y in range(8)]
         lista = []
         for c in casillas:
             lista_y = list()
             for z in range(8):
-                if(z != c[1]):
-                    lista_y.append('-' + self.DenC.P([c[0],z])) 
+                if(z != c.y):
+                    lista_y.append('-' + DenC.P([x,z])) 
                 
-            formula = '(' + self.DenC.P([c[0],c[1]]) + ">" + Ytoria(lista_y) + ')'
+            formula = '(' + self.DenC.P([x,y]) + ">" + Ytoria(lista_y) + ')'
             lista.append(formula)
             
-        return Ytoria(lista)
+        return Yoria(lista)
 
     def regla3(self):
-        
+        casillas = [(x,y) for x in range(8) for y in range(8)]
         combinaciones = list(combinations(casillas, 8))
         lista = []
         for c in casillas:
             lista_y = list()
             for z in range(8):
                 for w in range(8):
-                    if(abs((c[0]-z)/(c[1]-w)) == 1):
-                        lista_y.append('-' + self.DenC.P([z,w]))
+                    if(abs((x-z)/(y-w)) == 1):
+                        lista_y.append('-' + DenC.P([z,w]))
                 
-        formula = '(' + self.DenC.P([c[0],c[1]]) + ">" + Ytoria(lista_y) + ')'
+        formula = '(' + self.DenC.P([x,y]) + ">" + Ytoria(lista_y) + ')'
         lista.append(formula)
             
-        return Ytoria(lista)
+        return Yoria(lista)
     
     
     

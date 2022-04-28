@@ -1,6 +1,7 @@
-import clases
-import functions
+from functions import Damas
 
 
 
+
+d = Damas()
 
