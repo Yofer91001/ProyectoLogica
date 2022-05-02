@@ -96,7 +96,7 @@ class Damas:
         axes.get_xaxis().set_visible(False)
         axes.get_yaxis().set_visible(False)
         # Dibujo el tablero
-        step = 1./3
+        step = 1./8
         tangulos = []
         # Creo los cuadrados claros en el tablero
         tangulos.append(patches.Rectangle(\
@@ -123,7 +123,7 @@ class Damas:
         tangulos.append(patches.Rectangle(*[(0, 0), step, step],\
                 facecolor='lightslategrey'))
         # Creo las líneas del tablero
-        for j in range(3):
+        for j in range(8):
             locacion = j * step
             # Crea linea horizontal en el rectangulo
             tangulos.append(patches.Rectangle(*[(0, step + locacion), 1, 0.005],\
@@ -134,20 +134,82 @@ class Damas:
         for t in tangulos:
             axes.add_patch(t)
         # Cargando imagen de caballo
-        arr_img = plt.imread("./img/caballo.png", format='png')
+        arr_img = plt.imread("./img/dama.png", format='png')
         imagebox = OffsetImage(arr_img, zoom=0.1)
         imagebox.image.axes = axes
         # Creando las direcciones en la imagen de acuerdo a literal
         direcciones = {}
-        direcciones[(0,2)] = [0.165, 0.835]
-        direcciones[(1,2)] = [0.5, 0.835]
-        direcciones[(2,2)] = [0.835, 0.835]
-        direcciones[(0,1)] = [0.165, 0.5]
-        direcciones[(1,1)] = [0.5, 0.5]
-        direcciones[(2,1)] = [0.835, 0.5]
-        direcciones[(0,0)] = [0.165, 0.165]
-        direcciones[(1,0)] = [0.5, 0.165]
-        direcciones[(2,0)] = [0.835, 0.165]
+        direcciones[(0,0)] = [0.1, 0.1]
+        direcciones[(1,0)] = [0.2, 0.1]
+        direcciones[(2,0)] = [0.3, 0.1]
+        direcciones[(3,0)] = [0.4, 0.1]
+        direcciones[(4,0)] = [0.5, 0.1]
+        direcciones[(5,0)] = [0.6, 0.1]
+        direcciones[(6,0)] = [0.7, 0.1]
+        direcciones[(7,0)] = [0.8, 0.1]
+        #
+        direcciones[(0,1)] = [0.1, 0.2]
+        direcciones[(1,1)] = [0.2, 0.2]
+        direcciones[(2,1)] = [0.3, 0.2]
+        direcciones[(3,1)] = [0.4, 0.2]
+        direcciones[(4,1)] = [0.5, 0.2]
+        direcciones[(5,1)] = [0.6, 0.2]
+        direcciones[(6,1)] = [0.7, 0.2]
+        direcciones[(7,1)] = [0.8, 0.2]
+        #
+        direcciones[(0,2)] = [0.1, 0.3]
+        direcciones[(1,2)] = [0.2, 0.3]
+        direcciones[(2,2)] = [0.3, 0.3]
+        direcciones[(3,2)] = [0.4, 0.3]
+        direcciones[(4,2)] = [0.5, 0.3]
+        direcciones[(5,2)] = [0.6, 0.3]
+        direcciones[(6,2)] = [0.7, 0.3]
+        direcciones[(7,2)] = [0.8, 0.3]
+        #
+        direcciones[(0,3)] = [0.1, 0.4]
+        direcciones[(1,3)] = [0.2, 0.4]
+        direcciones[(2,3)] = [0.3, 0.4]
+        direcciones[(3,3)] = [0.4, 0.4]
+        direcciones[(4,3)] = [0.5, 0.4]
+        direcciones[(5,3)] = [0.6, 0.4]
+        direcciones[(6,3)] = [0.7, 0.4]
+        direcciones[(7,3)] = [0.8, 0.4]
+        #
+        direcciones[(0,4)] = [0.1, 0.5]
+        direcciones[(1,4)] = [0.2, 0.5]
+        direcciones[(2,4)] = [0.3, 0.5]
+        direcciones[(3,4)] = [0.4, 0.5]
+        direcciones[(4,4)] = [0.5, 0.5]
+        direcciones[(5,4)] = [0.6, 0.5]
+        direcciones[(6,4)] = [0.7, 0.5]
+        direcciones[(7,4)] = [0.8, 0.5]
+        #
+        direcciones[(0,5)] = [0.1, 0.6]
+        direcciones[(1,5)] = [0.2, 0.6]
+        direcciones[(2,5)] = [0.3, 0.6]
+        direcciones[(3,5)] = [0.4, 0.6]
+        direcciones[(4,5)] = [0.5, 0.6]
+        direcciones[(5,5)] = [0.6, 0.6]
+        direcciones[(6,5)] = [0.7, 0.6]
+        direcciones[(7,5)] = [0.8, 0.6]
+        #
+        direcciones[(0,6)] = [0.1, 0.7]
+        direcciones[(1,6)] = [0.2, 0.7]
+        direcciones[(2,6)] = [0.3, 0.7]
+        direcciones[(3,6)] = [0.4, 0.7]
+        direcciones[(4,6)] = [0.5, 0.7]
+        direcciones[(5,6)] = [0.6, 0.7]
+        direcciones[(6,6)] = [0.7, 0.7]
+        direcciones[(7,6)] = [0.8, 0.7]
+        #
+        direcciones[(0,7)] = [0.1, 0.8]
+        direcciones[(1,7)] = [0.2, 0.8]
+        direcciones[(2,7)] = [0.3, 0.8]
+        direcciones[(3,7)] = [0.4, 0.8]
+        direcciones[(4,7)] = [0.5, 0.8]
+        direcciones[(5,7)] = [0.6, 0.8]
+        direcciones[(6,7)] = [0.7, 0.8]
+        direcciones[(7,7)] = [0.8, 0.8]
         for l in I:
             if I[l]:
                 x, y = self.CenC.inv(l)
