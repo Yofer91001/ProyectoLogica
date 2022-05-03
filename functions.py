@@ -99,29 +99,31 @@ class Damas:
         step = 1./8
         tangulos = []
         # Creo los cuadrados claros en el tablero
-        tangulos.append(patches.Rectangle(\
-                                        (0, step), \
-                                        step, \
-                                        step,\
-                                        facecolor='cornsilk')\
-                                        )
-        tangulos.append(patches.Rectangle(*[(step, 0), step, step],\
-                facecolor='cornsilk'))
-        tangulos.append(patches.Rectangle(*[(2 * step, step), step, step],\
-                facecolor='cornsilk'))
-        tangulos.append(patches.Rectangle(*[(step, 2 * step), step, step],\
-                facecolor='cornsilk'))
-        # Creo los cuadrados oscuros en el tablero
-        tangulos.append(patches.Rectangle(*[(2 * step, 2 * step), step, step],\
-                facecolor='lightslategrey'))
-        tangulos.append(patches.Rectangle(*[(0, 2 * step), step, step],\
-                facecolor='lightslategrey'))
-        tangulos.append(patches.Rectangle(*[(2 * step, 0), step, step],\
-                facecolor='lightslategrey'))
-        tangulos.append(patches.Rectangle(*[(step, step), step, step],\
-                facecolor='lightslategrey'))
-        tangulos.append(patches.Rectangle(*[(0, 0), step, step],\
-                facecolor='lightslategrey'))
+        blanco = True
+        for x in range(8):
+            for y in range (8):
+                if blanco:
+                    tangulos.append(patches.Rectangle(\
+                                                (x * step, y *step), \
+                                                step, \
+                                                step,\
+                                                facecolor='cornsilk')\
+                                                )
+                    blanco = False
+                else:
+                    tangulos.append(patches.Rectangle(\
+                                                (x * step, y * step), \
+                                                step, \
+                                                step,\
+                                                facecolor='lightslategrey')\
+                                                )
+                    blanco = True
+            
+
+            if blanco:
+                blanco = False
+            else:
+                blanco = True
         # Creo las líneas del tablero
         for j in range(8):
             locacion = j * step
