@@ -36,12 +36,12 @@ class Damas:
     def __init__(self):
         self.DenC = Descriptor([8,8])
         self.DenC.escribir = MethodType(escribir_dama, self.DenC)
-        r1 = self.regla1()
-        r2 = self.regla2()
-        r3 = self.regla3()
-        self.reglas = [r1, r2, r3]
+        #r1 = self.regla1()
+        #r2 = self.regla2()
+        #r3 = self.regla3()
+        #self.reglas = [r1, r2, r3]
 
-
+    '''
     def regla1(self):
         
         lista = []
@@ -87,7 +87,7 @@ class Damas:
             
         return Ytoria(lista)
     
-    
+    '''
     
 
     def visualizar(self, I):
@@ -137,7 +137,7 @@ class Damas:
             axes.add_patch(t)
         # Cargando imagen de caballo
         arr_img = plt.imread("./img/dama.png", format='png')
-        imagebox = OffsetImage(arr_img, zoom=0.1)
+        imagebox = OffsetImage(arr_img, zoom=0.05)
         imagebox.image.axes = axes
         # Creando las direcciones en la imagen de acuerdo a literal
         direcciones = {}
@@ -214,7 +214,7 @@ class Damas:
         direcciones[(7,7)] = [0.8, 0.8]
         for l in I:
             if I[l]:
-                x, y = self.CenC.inv(l)
+                x, y = self.DenC.inv(l)
                 ab = AnnotationBbox(imagebox, direcciones[(x,y)], frameon=False)
                 axes.add_artist(ab)
         plt.show()
